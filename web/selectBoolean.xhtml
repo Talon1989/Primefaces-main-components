@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Select Boolean</title>
+    </h:head>
+    <h:body>
+        <h:form style="width: 500px">
+            <p:growl id="messagesId"/>
+
+            <p:panelGrid columns="3">
+
+                <p:outputLabel value="Turn your system"/>
+                <p:selectBooleanButton onLabel="On" offLabel="Off" value="#{selectBooleanBean.status}"/>
+                <p:commandButton value="Display System Status" action="#{selectBooleanBean.displayStatus}"
+                                 update="messagesId"/>
+
+                <p:outputLabel value="Turn your second system"/>
+                <p:selectBooleanCheckbox value="#{selectBooleanBean.status2}"/>
+                <p:commandButton value="Display System Status2" action="#{selectBooleanBean.displayStatus2}"
+                                 update="messagesId"/>
+
+                <p:outputLabel value="Selecte wanted tutorials:"/>
+                <p:selectCheckboxMenu value="#{selectBooleanBean.tutorials}" label="tutorials" filter="true">
+                    <f:selectItems value="#{['Primefaces','Hibernate','Spring']}" var="t"
+                                   itemLabel="#{t}" itemValue="#{t}"/>
+                </p:selectCheckboxMenu>
+                <p:commandButton value="OK" action="#{selectBooleanBean.displayTutorials}" update="messagesId"/>
+
+                <p:selectManyButton value="#{selectBooleanBean.tutorials}">
+                    <f:selectItems value="#{['First','Second','Third']}"/>
+                </p:selectManyButton>
+                <p:commandButton value="OK" action="#{selectBooleanBean.displayTutorials}" update="messagesId"/>
+
+            </p:panelGrid>
+        </h:form>
+    </h:body>
+</html>
+

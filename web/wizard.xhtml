@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Wizard</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <div style="width: 500px;">
+                <p:wizard>
+                    <p:tab id="tutorialBasicInfoId">
+                        <p:panelGrid columns="2">
+                            <p:outputLabel value="Tutorial Name:"/>
+                            <p:inputText value="#{registrationBean.tutorial.tutorialName}"/>
+                            <p:outputLabel value="Tutorial Instructor:"/>
+                            <p:inputText value="#{registrationBean.tutorial.tutorialInstructor}"/>
+                            <p:outputLabel value="Tutorial Period:"/>
+                            <p:inputText value="#{registrationBean.tutorial.tutorialPeriod}"/>
+                        </p:panelGrid>
+                    </p:tab>
+                    <p:tab id="tutorialRegistrationId">
+                        <p:panelGrid columns="2">
+                            <p:outputLabel value="Tutorial Price:"/>
+                            <p:inputText value="#{registrationBean.tutorial.tutorialPrice}"/>
+                            <p:outputLabel value="Tutorial Start Date:"/>
+                            <p:inputText value="#{registrationBean.tutorial.tutorialStartDate}"/>
+                            <p:outputLabel value="Tutorial End Date:"/>
+                            <p:inputText value="#{registrationBean.tutorial.tutorialEndDate}"/>
+                        </p:panelGrid>
+                        <p:commandButton value="Register" action="#{registrationBean.register}" update="tableId"/>
+                    </p:tab>
+                </p:wizard>
+                <p:dataTable id="tableId" value="#{registrationBean.tutorials}" var="t">
+                    <f:facet name="header">Tutorials List</f:facet>
+                    <p:column>
+                        <h:outputText value="#{t.tutorialName}"/>
+                    </p:column>
+                    <p:column>
+                        <h:outputText value="#{t.tutorialInstructor}"/>
+                    </p:column>
+                    <p:column>
+                        <h:outputText value="#{t.tutorialPeriod}"/>
+                    </p:column>
+                    <p:column>
+                        <h:outputText value="#{t.tutorialPrice}"/>
+                    </p:column>
+                    <p:column>
+                        <h:outputText value="#{t.tutorialStartDate}"/>
+                    </p:column>
+                    <p:column>
+                        <h:outputText value="#{t.tutorialEndDate}"/>
+                    </p:column>
+                </p:dataTable>
+            </div>
+        </h:form>
+    </h:body>
+</html>
+

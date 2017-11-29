@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Toolbar Tooltip</title>
+    </h:head>
+    <h:body>
+        <p:toolbar>
+            <p:toolbarGroup align="right">
+            </p:toolbarGroup>
+            <p:toolbarGroup align="left">
+                <h:form>
+                    <p:menuButton value="Navigate">
+                        <p:menuitem value="Home" url="#"/>
+                        <p:menuitem value="Logout" url="#"/>
+                    </p:menuButton>
+                </h:form>
+                <h:form>
+                    <p:outputLabel for="inputId" value="Name:"/>
+                    <p:inputText id="inputId"/>
+                    <p:tooltip for="inputId" value="Enter your name" showEffect="bounce"/>
+                </h:form>
+            </p:toolbarGroup>
+        </p:toolbar>
+    </h:body>
+</html>
+
